@@ -8,8 +8,11 @@ class DosesController < ApplicationController
   def create
     @dose = Dose.new(dose_params)
     @dose.cocktail = set_cocktail
-    @dose.save
-    redirect_to @cocktail
+    if @dose.save
+      redirect_to @cocktail
+    else
+      render :new
+    end
   end
 
   def destroy
