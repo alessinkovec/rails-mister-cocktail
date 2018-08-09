@@ -10,8 +10,8 @@ puts "seeding ingredients"
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 data = open(url).read
 parsed_data = JSON.parse(data)
-parsed_data.drinks.each do |ingredient|
-  ingredient = Ingredient.new(name: igredient["strIngredient1"])
+parsed_data["drinks"].each do |ingredient|
+  ingredient = Ingredient.new(name: ingredient["strIngredient1"])
   ingredient.save!
 end
 
