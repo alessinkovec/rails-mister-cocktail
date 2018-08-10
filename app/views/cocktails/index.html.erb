@@ -4,10 +4,10 @@
   <% @cocktails.each do |cocktail| %>
   <div class="row">
     <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: url('https://picsum.photos/g/400/500/?image=<%= rand(1..900) %>');">
+      <div class="card" style="background-image: url('<%= cl_image_path(cocktail.photo(height: 300, width: 400, crop: :fill)) if cocktail.photo == true %>');">
       <div class="card-category"><%= cocktail.name %></div>
       <div class="card-description"></div>
-      <img class="card-user" src="https://picsum.photos/400/500/?image=<%= rand(1..900) %>">
+      <img class="card-user" src="https://picsum.photos/200/200/?image=<%= rand(1..500) %>">
       <a class="card-link" href="cocktails/<%= cocktail.id %>" ></a>
       </div>
     </div>
